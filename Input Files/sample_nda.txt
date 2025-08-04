@@ -1,0 +1,11 @@
+MUTUAL NON-DISCLOSURE AGREEMENT
+
+This Agreement is made between InnovateCorp and PartnerCo.
+
+1.  **Confidential Information:** Refers to all non-public information exchanged between parties.
+
+2.  **Obligations:** The receiving party shall not disclose Confidential Information for a period of ten (10) years from the date of disclosure.
+
+3.  **Permitted Use:** Information may only be used for the purpose of evaluating a potential business relationship. PartnerCo may also use anonymized data to improve its own service offerings.
+
+4.  **Governing Law:** This agreement shall be governed by the laws of England and Wales.

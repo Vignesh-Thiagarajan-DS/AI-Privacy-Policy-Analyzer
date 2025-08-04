@@ -1,0 +1,9 @@
+Internal Company Policy Guidelines - August 2025
+
+1.  **Confidentiality Term:** The confidentiality obligation period must be a maximum of 5 years. Any term longer than 5 years is a high risk. A term between 3-5 years is medium risk. Anything less than 3 years is low risk. Indefinite or perpetual terms are unacceptable.
+
+2.  **Governing Law:** The preferred governing law and jurisdiction is Delaware, USA. Any other jurisdiction, especially outside the US, is considered high risk.
+
+3.  **Data Usage:** The counterparty may only use our data for the explicitly stated "Purpose" of the agreement. Any clause allowing data usage for their own internal analytics, model training, or "improving their services" is high risk and must be flagged.
+
+4.  **Indemnification:** The counterparty must provide indemnification for breaches of confidentiality and data security. A lack of an indemnification clause is high risk. Mutual indemnification is acceptable.

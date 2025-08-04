@@ -1,0 +1,11 @@
+# Virtual Environment
+venv/
+
+# Python cache
+__pycache__/
+
+# Vector Database (important!)
+chroma_db/
+
+# Mac-specific files
+.DS_Store

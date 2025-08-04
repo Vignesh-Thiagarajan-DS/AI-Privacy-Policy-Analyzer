@@ -1,0 +1,13 @@
+BUSINESS-TO-BUSINESS SERVICES AGREEMENT
+
+This Agreement is entered into by and between Alpha Solutions ("Provider") and Beta Widgets ("Client").
+
+Article 5: Confidentiality
+5.1. Each party agrees to hold the other party's Confidential Information in strict confidence.
+5.2. This obligation of confidentiality shall remain in effect for a period of three (3) years after the termination of this Agreement.
+
+Article 12: Governing Law and Venue
+12.1. This Agreement will be governed by the laws of the State of Delaware, USA, without regard to its conflict of laws principles.
+
+Article 14: Limitation of Liability and Indemnification
+14.1. The Provider's total liability will not exceed the fees paid by the Client in the preceding 12 months. There is no mention of indemnification for confidentiality breaches.
