@@ -4,7 +4,7 @@ venv/
 # Python cache
 __pycache__/
 
-# Vector Database (important!)
+# Vector Database
 chroma_db/
 
 # Mac-specific files
