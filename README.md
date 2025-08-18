@@ -52,36 +52,45 @@ graph TD
     F -->|6. Stream Response| D;
 ```
 
-#### 1\. Clone the Repository
+Local Setup & Installation
+Follow these steps to run the project on your local machine.
+
+Prerequisites
+Python 3.10+
+
+Ollama installed and running on your machine.
+
+Step-by-Step Guide
+1. Clone the Repository
+Bash
+
 git clone [https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git](https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git)
 cd AI-Privacy-Policy-Analyzer
+2. Create and Activate Virtual Environment
+Bash
 
-#### 2\. Create and Activate Virtual Environment
 python3 -m venv venv
 source venv/bin/activate
+3. Install Dependencies
+Bash
 
-#### 3\. Install Dependencies
 pip install -r requirements.txt
-
-#### 4\. Download a Local LLM via Ollama
-This project is optimized for a fast model like phi3:mini but also works with llama3.
+4. Download a Local LLM via Ollama
+Bash
 
 ollama pull phi3:mini
 ollama pull nomic-embed-text
-
-#### 5\. Ingest Your Data
-This script processes the documents in the Input Files folder and stores them in the ChromaDB vector store.
+5. Ingest Your Data
+Bash
 
 python Codes/ingest.py
+6. Run the Streamlit Application
+Bash
 
-#### 6\. Run the Streamlit Application
 streamlit run Codes/app.py
-
-Your web browser should automatically open with the application running.
-
 Usage
 Once the app is running, select a document from the dropdown menu.
 
-Click the " Analyze Document" button.
+Click the "Analyze Document" button.
 
 Watch as the analysis is streamed to the results section in real-time.
