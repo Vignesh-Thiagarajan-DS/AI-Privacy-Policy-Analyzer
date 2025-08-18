@@ -1,6 +1,6 @@
 # ⚖️ AI Legal Document Analyzer
 
-[![Python][python-badge]][python-link] [![Streamlit][streamlit-badge]][streamlit-link] [![LlamaIndex][llamaindex-badge]][llamaindex-link] [![Ollama][ollama-badge]][ollama-link]
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python)](https://www.python.org/) [![Streamlit](https://img.shields.io/badge/Streamlit-1.35-FF4B4B?logo=streamlit)](https://streamlit.io/) [![LlamaIndex](https://img.shields.io/badge/LlamaIndex-0.10-6B45BC?logo=llama)](https://www.llamaindex.ai/) [![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-232F3E?logo=ollama)](https://ollama.com/)
 
 A sophisticated RAG (Retrieval-Augmented Generation) system built to analyze legal documents like NDAs and B2B agreements for compliance risks. This tool leverages local LLMs to compare contract clauses against internal policies, providing real-time, streaming analysis to accelerate legal review cycles.
 
@@ -50,6 +50,7 @@ graph TD
     C -->|4. Context| F["Ollama LLM"];
     E -->|5. Query| F;
     F -->|6. Stream Response| D;
+```
 
 #### 1\. Clone the Repository
 git clone [https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git](https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git)
