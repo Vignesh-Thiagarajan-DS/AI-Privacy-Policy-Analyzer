@@ -43,13 +43,24 @@ The application follows a standard RAG pipeline:
 
 ```mermaid
 graph TD
-    A["Legal Docs & Policy"] -->|1. Ingestion| B["LlamaIndex: Text Embedding"];
-    B -->|2. Storage| C["ChromaDB Vector Store"];
-    D["User selects document in Streamlit UI"] --> E{"Query Engine"};
-    E -->|3. Retrieve Relevant Context| C;
-    C -->|4. Context| F["Ollama LLM"];
-    E -->|5. Query| F;
-    F -->|6. Stream Response| D;
+    subgraph "Data Ingestion & Embedding (Offline)"
+        A["Legal Documents & Policy Guidelines"] -- Ingestion --> B["LlamaIndex: Document Loading"];
+        B -- Text Splitting --> C["LlamaIndex: Chunking"];
+        C -- Embedding Generation (nomic-embed-text) --> D["LlamaIndex: Embedding Model"];
+        D -- Indexing --> E["ChromaDB: Vector Store"];
+    end
+
+    subgraph "Real-Time Analysis (Online)"
+        F["User selects document & asks query in Streamlit UI"] -- Query Input --> G{"Query Engine in LlamaIndex"};
+        E -- Retrieve Relevant Embeddings (Similarity Search) --> G;
+        G -- Contextualized Prompt Generation --> H["Ollama LLM (e.g., llama3)"];
+        H -- Streaming Response Generation --> I["Streamlit UI: Displaying Analysis"];
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px
+    style E fill:#ccf,stroke:#333,stroke-width:2px
+    style F fill:#eef,stroke:#333,stroke-width:2px
+    style H fill:#aaf,stroke:#333,stroke-width:2px
 ```
 
 ### Local Setup & Installation
