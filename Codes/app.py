@@ -25,7 +25,7 @@ def initialize_system():
     """
     st.write("Initializing system... (This happens only once)")
     # Setup LLM and embedding model
-    Settings.llm = Ollama(model="llama3", request_timeout=300.0)
+    Settings.llm = Ollama(model="llama3", request_timeout=300.0, temperature=0.1)
     Settings.embed_model = OllamaEmbedding(model_name="nomic-embed-text")
 
     # Connect to the existing ChromaDB collection
@@ -80,6 +80,7 @@ analysis_prompt = (
     f"3. **Risk Assessment:** Assign a clear risk level: **Low Risk**, **Medium Risk**, **High Risk**, or **Unacceptable**. \n"
     f"4. **Justification:** Provide a concise, one-sentence justification explaining your risk assessment based on how the document's clause aligns with our policy guideline.\n\n"
     f"Present your final analysis in a clear, structured format."
+    #f"Using the documents, briefly summarize the agreement named '{selected_doc_filename}' in one sentence."
 )
 
 if st.button("Analyze Document", type="primary"):
