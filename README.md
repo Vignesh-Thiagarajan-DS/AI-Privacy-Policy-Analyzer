@@ -8,7 +8,7 @@ A sophisticated RAG (Retrieval-Augmented Generation) system built to analyze leg
 
 ![AI Legal Analyzer Demo](http://googleusercontent.com/file_content/0)
 
-## 🎯 The Problem
+## The Problem
 
 In any business setting, legal teams spend countless hours manually reviewing contracts. This process is:
 * **Time-Consuming:** Manually reading dense legal text is slow.
@@ -17,7 +17,7 @@ In any business setting, legal teams spend countless hours manually reviewing co
 
 This project tackles these challenges by automating the initial, repetitive stages of compliance review.
 
-## ✨ Features
+## Features
 
 * **AI-Powered Clause Analysis:** Utilizes local, open-source LLMs (Llama 3 / Phi3) to understand and interpret complex legal language.
 * **Retrieval-Augmented Generation (RAG):** The core of the system. It enriches the LLM's knowledge with custom internal policy documents, ensuring analysis is based on specific organizational rules, not just general knowledge.
@@ -25,7 +25,7 @@ This project tackles these challenges by automating the initial, repetitive stag
 * **Interactive Frontend:** A clean, user-friendly interface built with Streamlit for easy document selection and analysis.
 * **Real-Time Streaming:** The analysis report is streamed word-by-word, providing an interactive and responsive user experience.
 
-## 🛠️ Tech Stack & Architecture
+## Tech Stack & Architecture
 
 This project was built with a modern, open-source stack designed for building local-first LLM applications.
 
@@ -43,10 +43,44 @@ The application follows a standard RAG pipeline:
 
 ```mermaid
 graph TD
-    A[Legal Docs & Policy] -->|1. Ingestion| B(LlamaIndex: Text Embedding);
-    B -->|2. Storage| C[ChromaDB Vector Store];
-    D[User selects document in Streamlit UI] --> E{Query Engine};
+    A["Legal Docs & Policy"] -->|1. Ingestion| B["LlamaIndex: Text Embedding"];
+    B -->|2. Storage| C["ChromaDB Vector Store"];
+    D["User selects document in Streamlit UI"] --> E{"Query Engine"};
     E -->|3. Retrieve Relevant Context| C;
-    C -->|4. Context| F[Ollama LLM];
+    C -->|4. Context| F["Ollama LLM"];
     E -->|5. Query| F;
     F -->|6. Stream Response| D;
+
+#### 1\. Clone the Repository
+git clone [https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git](https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git)
+cd AI-Privacy-Policy-Analyzer
+
+#### 2\. Create and Activate Virtual Environment
+python3 -m venv venv
+source venv/bin/activate
+
+#### 3\. Install Dependencies
+pip install -r requirements.txt
+
+#### 4\. Download a Local LLM via Ollama
+This project is optimized for a fast model like phi3:mini but also works with llama3.
+
+ollama pull phi3:mini
+ollama pull nomic-embed-text
+
+#### 5\. Ingest Your Data
+This script processes the documents in the Input Files folder and stores them in the ChromaDB vector store.
+
+python Codes/ingest.py
+
+#### 6\. Run the Streamlit Application
+streamlit run Codes/app.py
+
+Your web browser should automatically open with the application running.
+
+Usage
+Once the app is running, select a document from the dropdown menu.
+
+Click the " Analyze Document" button.
+
+Watch as the analysis is streamed to the results section in real-time.
