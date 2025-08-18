@@ -42,25 +42,44 @@ This project was built with a modern, open-source stack designed for building lo
 The application follows a standard RAG pipeline:
 
 ```mermaid
-graph TD
-    subgraph "Data Ingestion & Embedding (Offline)"
-        A["Legal Documents & Policy Guidelines"] -- Ingestion --> B["LlamaIndex: Document Loading"];
-        B -- Text Splitting --> C["LlamaIndex: Chunking"];
-        C -- Embedding Generation (nomic-embed-text) --> D["LlamaIndex: Embedding Model"];
-        D -- Indexing --> E["ChromaDB: Vector Store"];
-    end
+---
+config:
+  layout: fixed
+  look: neo
+---
+flowchart LR
+ subgraph subGraph0["Data Ingestion & Preparation (Offline)"]
+        E["Vector Database (ChromaDB)"]
+        D["LlamaIndex: Embedding Generation"]
+        C["LlamaIndex: Text Chunking & Splitting"]
+        B["LlamaIndex: Data Loading & Parsing"]
+        A["Source Documents (Legal & Policy)"]
+  end
+ subgraph subGraph1["Real-Time Analysis & Reporting (Online)"]
+        G{"LlamaIndex: Query Engine"}
+        F["User Query via UI"]
+        H["Ollama LLM"]
+        I["Streamlit UI: Report"]
+  end
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    F --> G
+    G --> E
+    E -- Retrieves Relevant Context --> G
+    G -- Generates Contextualized Prompt --> H
+    H -- Streams Analytical Insights --> I
+    style A fill:#f5f5f5,color:#333,stroke:#333,stroke-width:1px
+    style B fill:#e0f7fa,color:#333,stroke:#333,stroke-width:1px
+    style C fill:#e0f7fa,color:#333,stroke:#333,stroke-width:1px
+    style D fill:#e0f7fa,color:#333,stroke:#333,stroke-width:1px
+    style E fill:#dcedc8,color:#333,stroke:#333,stroke-width:2px
+    style F fill:#f5f5f5,color:#333,stroke:#333,stroke-width:1px
+    style G fill:#e0f7fa,color:#333,stroke:#333,stroke-width:1px
+    style H fill:#dcedc8,color:#333,stroke:#333,stroke-width:2px
+    style I fill:#aed581,color:#333,stroke:#333,stroke-width:2px
 
-    subgraph "Real-Time Analysis (Online)"
-        F["User selects document & asks query in Streamlit UI"] -- Query Input --> G{"Query Engine in LlamaIndex"};
-        E -- Retrieve Relevant Embeddings (Similarity Search) --> G;
-        G -- Contextualized Prompt Generation --> H["Ollama LLM (e.g., llama3)"];
-        H -- Streaming Response Generation --> I["Streamlit UI: Displaying Analysis"];
-    end
-
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style E fill:#ccf,stroke:#333,stroke-width:2px
-    style F fill:#eef,stroke:#333,stroke-width:2px
-    style H fill:#aaf,stroke:#333,stroke-width:2px
 ```
 
 ### Local Setup & Installation
@@ -73,37 +92,42 @@ Prerequisites
 #### Step-by-Step Guide
 1. Clone the Repository
 Bash
-```
-git clone [https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git](https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git)
-cd AI-Privacy-Policy-Analyzer
-```
+    ```
+    git clone [https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git](https://github.com/Vignesh-Thiagarajan-DS/AI-Privacy-Policy-Analyzer.git)
+    cd AI-Privacy-Policy-Analyzer
+    ```
+    
 2. Create and Activate Virtual Environment
 Bash
-```
-python3 -m venv venv
-source venv/bin/activate
-```
+    ```
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+    
 3. Install Dependencies
 Bash
-```
-pip install -r requirements.txt
-```
+    ```
+    pip install -r requirements.txt
+    ```
+    
 4. Download a Local LLM via Ollama
 Bash
-```
-ollama pull phi3:mini
-ollama pull nomic-embed-text
-```
+    ```
+    ollama pull phi3:mini
+    ollama pull nomic-embed-text
+    ```
+    
 5. Ingest Your Data
 Bash
-```
-python Codes/ingest.py
-```
+    ```
+    python Codes/ingest.py
+    ```
+    
 6. Run the Streamlit Application
 Bash
-```
-streamlit run Codes/app.py
-```
+    ```
+    streamlit run Codes/app.py
+    ```
 
 #### Usage
 1. Once the app is running, select a document from the dropdown menu.
