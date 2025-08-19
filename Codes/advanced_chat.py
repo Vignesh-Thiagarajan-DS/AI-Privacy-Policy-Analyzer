@@ -118,7 +118,7 @@ with col1:
     # Use a placeholder to create space, title is now part of the welcome message
     st.header("Aegis! 🛡️ - Legal Assistant (Running on Local LLM)") 
 with col2:
-    image_path = "Images/Vignesh_DP.jpg"
+    image_path = "Static/Vignesh_DP.jpg"
     try:
         image_b64 = image_to_base64(image_path)
         st.markdown(

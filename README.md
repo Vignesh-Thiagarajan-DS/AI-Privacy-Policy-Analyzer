@@ -6,7 +6,7 @@ A sophisticated RAG (Retrieval-Augmented Generation) system built to analyze leg
 
 <br>
 
-![AI Legal Analyzer Demo](http://googleusercontent.com/file_content/0)
+![Aegis App Demo](./Static/Vignesh-AI-Legal-Assistant-v01-demo.gif)
 
 ## The Problem
 
