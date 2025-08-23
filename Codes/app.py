@@ -59,6 +59,11 @@ selected_doc_filename = st.selectbox(
     index=0 # Default to the first document in the list
 )
 
+def clean_text(text: str) -> str:
+    if not isinstance(text, str):
+        return ""
+    return text.strip().lower()
+
 # Display the content of the selected document in an expander
 if selected_doc_filename:
     with open(os.path.join(doc_folder, selected_doc_filename), "r") as f:
